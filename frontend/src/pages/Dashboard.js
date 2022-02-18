@@ -1,6 +1,7 @@
 import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
+import GoalForm from '../components/GoalForm';
 
 const Dashboard = () => {
   const navigate = useNavigate();
@@ -13,7 +14,17 @@ const Dashboard = () => {
     }
   }, [user, navigate]);
 
-  return <div>Dashboard</div>;
+  return (
+    <>
+      <section className="heading">
+        <h1 style={{ textTransform: 'capitalize' }}>
+          Welcome {user && user.name}
+        </h1>
+      </section>
+
+      <GoalForm />
+    </>
+  );
 };
 
 export default Dashboard;
